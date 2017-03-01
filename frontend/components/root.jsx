@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, IndexRedirect, hashHistory } from 'react-rou
 
 import App from './app/app';
 import WelcomeContainer from './welcome/welcome_container';
+import MainContainer from './main/main_container';
 
 const Root = ({ store }) => {
   const _ensureLoggedIn = (nextState, replace) => {
@@ -24,7 +25,7 @@ const Root = ({ store }) => {
       <Router history= { hashHistory }>
         <Route path="/" component= { App }>
           <IndexRoute component={WelcomeContainer} onEnter={_redirectIfLoggedIn}/>
-
+          <Route component={MainContainer} onEnter={_ensureLoggedIn} />
         </Route>
       </Router>
     </Provider>
