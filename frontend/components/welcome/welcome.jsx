@@ -18,7 +18,7 @@ class Welcome extends React.Component {
   componentDidMount() {
     this.props.clearError();
   }
-  
+
   redirect() {
     this.props.router.push("/main");
   }
@@ -49,31 +49,31 @@ class Welcome extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Welcome</h1>
+      <div className="align-footer">
+        <div className="welcome">
+          <img className="logo" src="https://res.cloudinary.com/dirtnmtpc/image/upload/v1489098571/Logomakr_45WJMT_euz13z.png"/>
           <form onSubmit={this.handleSubmit} className="auth-form-box">
               {this.renderErrors()}
               <div className="auth-form">
                 <br />
                 <br />
-                  <label> Username
       							<input type="text"
+                      placeholder="username"
       								value={this.state.username}
       								onChange={this.update("username")}
       								className="auth-input" />
-    						  </label>
-
-      						<label> Password
+                  <br />
       							<input type="password"
+                      placeholder="password"
       								value={this.state.password}
       								onChange={this.update("password")}
       								className="auth-input" />
-      						</label>
     						<br/>
                 <br />
                   <input className="button" type="submit" value="Log In"/>
               </div>
             </form>
+        </div>
       </div>
     );
   }
