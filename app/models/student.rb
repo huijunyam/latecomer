@@ -1,7 +1,7 @@
 class Student < ActiveRecord::Base
-  validates :name, :lateness, presence: true
+  validates :name, :lateness, :class_id, presence: true
 
-  belongs_to :class,
+  belongs_to :classroom,
     primary_key: :id,
     foreign_key: :class_id,
     class_name: :ClassName

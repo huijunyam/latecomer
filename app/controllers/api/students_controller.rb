@@ -20,8 +20,15 @@ class Api::StudentsController < ApplicationController
 
   def delete
     student = Student.find(params[:id])
-    @class = student.class
-    student.destroy 
+    @class = student.classroom
+    student.destroy
     render "api/class_names/show"
+  end
+
+  private
+  def student_params
+    params.require(:student).permit(
+      :name, :lateness, :class_id
+    )
   end
 end

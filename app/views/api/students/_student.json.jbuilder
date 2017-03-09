@@ -1,1 +1,1 @@
-json.extract! student, :id, :name, :lateness, :class
+json.extract! student, :id, :name, :lateness, :classroom, :dates
