@@ -51,7 +51,7 @@ class Welcome extends React.Component {
     return (
       <div className="align-footer">
         <div className="welcome">
-          <img className="logo" src="https://res.cloudinary.com/dirtnmtpc/image/upload/v1489098571/Logomakr_45WJMT_euz13z.png"/>
+          <img className="welcome-logo" src="https://res.cloudinary.com/dirtnmtpc/image/upload/v1489098571/Logomakr_45WJMT_euz13z.png"/>
           <form onSubmit={this.handleSubmit} className="auth-form-box">
               {this.renderErrors()}
               <div className="auth-form">
