@@ -1,0 +1,23 @@
+.welcome-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: $blue;
+}
+
+.logo {
+  margin: 20px;
+  width: 250px;
+  height: 50px;
+}
+
+.welcome-page-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.welcome-list-button {
+  border: none;
+  background-color: $blue;
+  color: $white;
+  padding: 36px;
+}
