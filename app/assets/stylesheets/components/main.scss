@@ -21,3 +21,27 @@
   color: $white;
   padding: 36px;
 }
+
+.main-choice {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  margin: 200px auto;
+}
+
+.main-choice-list {
+  text-align: center;
+  margin: 20px;
+}
+
+.main-img {
+  width: 200px;
+  height: 200px;
+}
+
+.main-name-list {
+  color: $blue;
+  font-size: 30px;
+  margin: 10px;
+  font-family: $architect;
+}
