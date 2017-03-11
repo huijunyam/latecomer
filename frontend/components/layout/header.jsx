@@ -23,7 +23,7 @@ class Header extends React.Component{
       <div className="home-container">
         <div className="welcome-header">
           <div className="site-name-with-logo">
-            <Link to="/"><img className="logo" src={"https://res.cloudinary.com/dirtnmtpc/image/upload/v1489098571/Logomakr_45WJMT_euz13z.png"} alt="logomakr"/></Link>
+            <Link to="/"><img className="logo" src={"https://res.cloudinary.com/dirtnmtpc/image/upload/v1489190766/Logomakr_2X93RJ_no260f.png"} alt="logomakr"/></Link>
           </div>
           <ul className="welcome-page-nav">
             <li><button className="welcome-list-button">New Student</button></li>
