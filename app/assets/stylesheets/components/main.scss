@@ -25,18 +25,20 @@
 .main-choice {
   display: flex;
   justify-content: space-between;
-  width: 800px;
+  width: 900px;
   margin: 200px auto;
 }
 
 .main-choice-list {
   text-align: center;
-  margin: 30px;
+  // margin: 30px;
+  padding: 30px;
 }
 
 .main-img {
   width: 200px;
   height: 200px;
+  padding: 10px;
 }
 
 .main-name-list {
@@ -44,4 +46,8 @@
   font-size: 30px;
   margin: 10px;
   font-family: $architect;
+}
+
+.main-choice-list:hover {
+  background-color: $lightest-blue;
 }
