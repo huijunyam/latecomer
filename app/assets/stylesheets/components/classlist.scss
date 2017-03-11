@@ -1,0 +1,15 @@
+.class-list {
+  display: flex;
+  // justify-content: space-between;
+  width: 1100px;
+  margin: 50px auto;
+  flex-wrap: wrap;
+}
+
+.class-list-button {
+  width: 100px;
+}
+
+.class-list-button:hover {
+  border-radius: 0;
+}
