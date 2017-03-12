@@ -13,6 +13,20 @@ class ClassDetail extends React.Component {
     }
   }
 
+  compare(a,b) {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  }
+
+  sortStudent() {
+    return this.props.classDetail.students.sort(this.compare);
+  }
+
   render() {
     return (
       <div>
@@ -28,7 +42,7 @@ class ClassDetail extends React.Component {
         </div>
         <div>
           <ul className="student-list">
-            {this.props.classDetail.students.map((student, idx) => (<Student key={idx}
+            {this.sortStudent().map((student, idx) => (<Student key={idx}
               deleteStudent={this.props.deleteStudent} id={this.props.classId} student={student} />))}
           </ul>
         </div>

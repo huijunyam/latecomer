@@ -23,7 +23,8 @@ class Form extends React.Component {
     if (this.state.lateOperation === "Add") {
       dates.push(this.state.date);
     } else {
-      dates.pop();
+      let index = dates.indexOf(this.state.date);
+      dates = dates.slice(0, index).concat(dates.slice(index + 1));
     }
     return dates;
   }
@@ -42,8 +43,14 @@ class Form extends React.Component {
     e.preventDefault();
     if (this.state.date === "") {
       this.props.sendError(["Late date is required"]);
-    } else if (this.state.lateOperation === "") {
+    } else if (this.state.lateOperation === "" || this.state.lateOperation === "Select an operation") {
       this.props.sendError(["Operation is required"]);
+    } else if (this.state.lateOperation === "Add" &&
+      this.props.student.dates.indexOf(this.state.date) !== -1) {
+      this.props.sendError(["Late day has been added"]);
+    } else if (this.state.lateOperation === "Remove" &&
+      this.props.student.dates.indexOf(this.state.date) === -1) {
+      this.props.sendError(["Please choose the correct date that is in the list above"]);
     } else {
       const dateArr = this.getDate();
       const lateness = this.getLateness();
@@ -73,6 +80,20 @@ class Form extends React.Component {
     }
   }
 
+  compare(a,b) {
+    if (a < b) {
+      return -1;
+    }
+    if (a > b) {
+      return 1;
+    }
+    return 0;
+  }
+
+  sortDate() {
+    return this.props.student.dates.sort(this.compare);
+  }
+
   renderLateDay() {
     if (this.props.student.dates.length === 0) {
       return "Date: None";
@@ -93,7 +114,7 @@ class Form extends React.Component {
           <h2 className="form-name"><strong className="strong-form">Number of Lateness: </strong>{this.props.student.lateness}</h2>
           <h2 className="form-name"><strong className="strong-form">{this.renderLateDay()}</strong></h2>
           <ul className="date-list">
-            {this.props.student.dates.map((date, idx) => <li className="form-dates" key={`student-${this.props.student.id}-date-${idx}`}>{date}</li>)}
+            {this.sortDate().map((date, idx) => <li className="form-dates" key={`student-${this.props.student.id}-date-${idx}`}>{date}</li>)}
           </ul>
             <form onSubmit={this.handleSubmit} className="create-form">
               {this.renderErrors()}
