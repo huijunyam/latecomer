@@ -16,6 +16,7 @@ class ClassList extends React.Component {
     return (
       <div>
         <HeaderContainer />
+        <h2 className="classlist-classname">Select the class</h2>
         <div className="class-list-whole">
           <ul className="class-list">
               {this.props.classes.map(classname => (<ClassListItem key={classname.id} classname={classname} />))}

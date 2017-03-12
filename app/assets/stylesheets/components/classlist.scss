@@ -1,7 +1,16 @@
+.classlist-classname {
+  font-size: 30px;
+  color: $dark-blue;
+  font-family: $sans-serif;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: normal;
+}
+
 .class-list {
   display: flex;
   width: 980px;
-  margin: 50px auto;
+  margin: 30px auto 60px auto;
   flex-wrap: wrap;
   text-align: center;
 }
