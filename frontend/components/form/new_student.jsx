@@ -59,28 +59,31 @@ class NewStudent extends React.Component {
     return(
       <div>
         <HeaderContainer />
-        <form onSubmit={this.handleSubmit} className="create-form">
-          {this.renderErrors()}
-          <label>Student Name</label>
-          <br />
-          <input type="text"
-            value={this.state.name}
-            onChange={this.update("name")}
-            className="student-name-box"/>
-          <br />
-          <br />
-          <label>Class</label>
-           <select
-             value={this.state.classname}
-             onChange={this.update('classname')}>
-             <option>Select the class</option>
-             {this.props.classnames.map((type, i) => {
-               return <option value={type} key={i}>{type}</option>;
-             })}
-           </select>
-
-           <input className="submit-button" type="submit" value="Add New Student"/>
-        </form>
+        <div className="form-container">
+          <h2 className="form-classname">Add New Student</h2>
+          <form onSubmit={this.handleSubmit} className="create-form">
+            {this.renderErrors()}
+            <label className="strong-form">Student Name</label>
+            <input type="text"
+              value={this.state.name}
+              onChange={this.update("name")}
+              className="student-name-box"/>
+            <br />
+            <br />
+            <label className="strong-form">Class</label>
+             <select className="operation-input"
+               value={this.state.classname}
+               onChange={this.update('classname')}>
+               <option>Select the class</option>
+               {this.props.classnames.map((type, i) => {
+                 return <option value={type} key={i}>{type}</option>;
+               })}
+             </select>
+             <br />
+             <br />
+             <input className="submit-button" type="submit" value="Add New Student"/>
+          </form>
+        </div>
       </div>
     );
   }

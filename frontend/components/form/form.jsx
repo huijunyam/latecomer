@@ -115,7 +115,7 @@ class Form extends React.Component {
                 </select>
                 <br />
                 <br />
-               <input className="submit-button" type="submit" value="Add New Student"/>
+               <input className="submit-button" type="submit" value="Update Student Profile"/>
             </form>
         </div>
       </div>
