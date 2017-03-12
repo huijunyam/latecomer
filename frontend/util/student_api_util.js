@@ -20,3 +20,17 @@ export const deleteStudent = id => (
     url: `api/students/${id}`
   })
 );
+
+export const fetchStudents = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/students'
+  })
+);
+
+export const fetchStudent = id => (
+  $.ajax({
+    method: 'GET',
+    url: `api/students/${id}`
+  })
+);

@@ -6,6 +6,9 @@ export const RECEIVE_CLASS = "RECEIVE_CLASS";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const CLEAR_ERROR = "CLEAR_ERROR";
 
+export const RECEIVE_STUDENTS = "RECEIVE_STUDENTS";
+export const RECEIVE_STUDENT = "RECEIVE_STUDENT";
+
 export const receiveClasses = classes => ({
   type: RECEIVE_CLASSES,
   classes
@@ -25,12 +28,30 @@ export const clearError = () => ({
   type: CLEAR_ERROR
 });
 
+export const receiveStudents = students => ({
+  type: RECEIVE_STUDENTS,
+  students
+});
+
+export const receiveStudent = student => ({
+  type: RECEIVE_STUDENT,
+  student
+});
+
 export const fetchClasses = () => dispatch => (
   ClasslistUtil.fetchClasses().then(classes => dispatch(receiveClasses(classes)))
 );
 
 export const fetchClass = id => dispatch => (
   ClasslistUtil.fetchClass(id).then(classDetail => dispatch(receiveClass(classDetail)))
+);
+
+export const fetchStudents = () => dispatch => (
+  StudentUtil.fetchStudents().then(students => dispatch(receiveStudents(students)))
+);
+
+export const fetchStudent = id => dispatch => (
+  StudentUtil.fetchStudent(id).then(student => dispatch(receiveStudent(student)))
 );
 
 export const createStudent = student => dispatch => (

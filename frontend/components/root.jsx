@@ -37,6 +37,7 @@ const Root = ({ store }) => {
           <Route path="/classlist" component={ClassListContainer} onEnter={_ensureLoggedIn}>
             <Route path="/classlist/:classId" component={ClassDetailContainer} onEnter={_ensureLoggedIn}/>
           </Route>
+          <Route path="/student/:studentId" component={FormContainer} onEnter={_ensureLoggedIn} />
         </Route>
       </Router>
     </Provider>

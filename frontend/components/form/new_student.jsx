@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 class NewStudent extends React.Component {
   constructor(props){
     super(props);
-    this.state = { class_id: 0, classname: "", name: "", lateness: 0 };
+    this.state = { classname: "", name: "", lateness: 0 };
     this.upate = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
