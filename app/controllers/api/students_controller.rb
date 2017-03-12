@@ -18,6 +18,15 @@ class Api::StudentsController < ApplicationController
     end
   end
 
+  def update
+    @student = Student.find(params[:id])
+    if @student.update(student_params)
+      render "api/students/shows"
+    else
+      render json: @event.errors.full_messages, status: 422
+    end
+  end
+
   def delete
     student = Student.find(params[:id])
     @class = student.classroom
