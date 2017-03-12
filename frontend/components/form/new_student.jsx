@@ -31,8 +31,7 @@ class NewStudent extends React.Component {
   }
 
   redirect() {
-    // hashHistory.push('/classlist');
-    console.log("success");
+    hashHistory.push('/classlist');
   }
 
   handleSubmit(e) {
@@ -43,7 +42,7 @@ class NewStudent extends React.Component {
       lateness: 0,
       class_id: parseInt(id)
     };
-    this.props.createStudent(student).then(() => this.redirect())
+    this.props.createStudent(student).then(() => this.redirect());
   }
 
   renderErrors() {

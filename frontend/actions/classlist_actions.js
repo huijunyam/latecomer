@@ -33,10 +33,10 @@ export const fetchClass = id => dispatch => (
   ClasslistUtil.fetchClass(id).then(classDetail => dispatch(receiveClass(classDetail)))
 );
 
-export const createStudent = student =>  dispatch => (
+export const createStudent = student => dispatch => (
   StudentUtil.createStudent(student)
-  .then(classDetail => dispatch(receiveClass(classDetail))),
-  err => dispatch(receiveErrors(err.responseJSON))
+  .then(classDetail => dispatch(receiveClass(classDetail)),
+  err => dispatch(receiveErrors(err.responseJSON)))
 );
 
 export const updateStudent = student => dispatch => (
