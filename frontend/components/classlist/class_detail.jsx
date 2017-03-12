@@ -7,6 +7,12 @@ class ClassDetail extends React.Component {
     this.props.fetchClass(this.props.classId);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.params.classId !== nextProps.params.classId) {
+      this.props.fetchClass(nextProps.params.classId);
+    }
+  }
+
   render() {
     return (
       <div>
