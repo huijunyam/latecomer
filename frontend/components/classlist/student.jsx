@@ -5,24 +5,12 @@ import { Link, hashHistory } from 'react-router';
 class Student extends React.Component {
   constructor(props){
     super(props);
-    this.state = { lateness: this.props.student.lateness };
-    this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
     this.redirect = this.redirect.bind(this);
   }
 
   redirect() {
     hashHistory.push('/classlist');
-  }
-
-  update(e) {
-    e.preventDefault();
-    const lateness = this.state.lateness - 1;
-    const latenessUpdate = {
-      lateness: lateness
-    };
-    let student = merge(this.props.student, latenessUpdate);
-    this.props.updateStudent(student).then(() => this.redirect());
   }
 
   delete(e) {
@@ -42,7 +30,9 @@ class Student extends React.Component {
         </div>
         <div className="col-first-operation">
           <div className="operation">
-            <button onClick={this.update} className="operation-button-first">Edit</button>
+            <Link to={`/student/${this.props.student.id}`}>
+              <button className="operation-button-first">Edit</button>
+            </Link>
             <button onClick={this.delete} className="operation-button-second">Delete</button>
           </div>
         </div>

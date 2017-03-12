@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ClassDetail from './class_detail';
-import { fetchClass, updateStudent, deleteStudent } from '../../actions/classlist_actions';
+import { fetchClass, deleteStudent } from '../../actions/classlist_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const classId = parseInt(ownProps.params.classId);
@@ -13,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchClass: (id) => dispatch(fetchClass(id)),
-  updateStudent: student => dispatch(updateStudent(student)),
   deleteStudent: id => dispatch(deleteStudent(id))
 });
 

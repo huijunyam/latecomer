@@ -29,8 +29,7 @@ class ClassDetail extends React.Component {
         <div>
           <ul className="student-list">
             {this.props.classDetail.students.map(student => (<Student key={student.id}
-              updateStudent={this.props.updateStudent} deleteStudent={this.props.deleteStudent}
-              student={student} />))}
+              deleteStudent={this.props.deleteStudent} student={student} />))}
           </ul>
         </div>
       </div>
