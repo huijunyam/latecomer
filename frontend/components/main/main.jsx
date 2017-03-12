@@ -18,6 +18,12 @@ class Main extends React.Component {
               </Link>
             </div>
             <div className="main-choice-list">
+              <Link to="/namelist" >
+                <img className="main-img" src="https://res.cloudinary.com/dirtnmtpc/image/upload/v1489348369/Logomakr_5yn7zr_qwhxef.png" />
+                <p className="main-name-list">Name List</p>
+              </Link>
+            </div>
+            <div className="main-choice-list">
               <Link to="/stat" >
                 <img className="main-img" src="https://res.cloudinary.com/dirtnmtpc/image/upload/v1489188250/Logomakr_2q5DOl_jmjgm7.png" />
                 <p className="main-name-list">Statistics</p>

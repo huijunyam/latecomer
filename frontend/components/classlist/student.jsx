@@ -10,7 +10,7 @@ class Student extends React.Component {
   }
 
   redirect() {
-    hashHistory.push('/classlist');
+    hashHistory.push(`/classlist/${this.props.id}`);
   }
 
   delete(e) {

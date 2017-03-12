@@ -28,8 +28,8 @@ class ClassDetail extends React.Component {
         </div>
         <div>
           <ul className="student-list">
-            {this.props.classDetail.students.map(student => (<Student key={student.id}
-              deleteStudent={this.props.deleteStudent} student={student} />))}
+            {this.props.classDetail.students.map((student, idx) => (<Student key={idx}
+              deleteStudent={this.props.deleteStudent} id={this.props.classId} student={student} />))}
           </ul>
         </div>
       </div>

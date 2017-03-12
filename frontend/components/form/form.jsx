@@ -55,7 +55,7 @@ class Form extends React.Component {
         class_id: id,
         dates: dateArr
       };
-      this.props.updateStudent(student).then(() => this.props.router.push(`/classlist`));
+      this.props.updateStudent(student).then(() => this.props.router.push(`/classlist/${id}`));
     }
   }
 

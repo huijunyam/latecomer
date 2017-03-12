@@ -23,7 +23,8 @@ class Api::StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @student.dates = params[:student][:dates]
     if @student.update(student_params)
-      render "api/students/show"
+      @class_name = ClassName.find(@student.class_id);
+      render "api/class_names/show"
     else
       render json: @event.errors.full_messages, status: 422
     end
