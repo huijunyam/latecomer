@@ -74,7 +74,9 @@ class Form extends React.Component {
   }
 
   renderLateDay() {
-    if (this.props.student.dates.length === 0 || this.props.student.dates.length === 1) {
+    if (this.props.student.dates.length === 0) {
+      return "Date: None";
+    } else if (this.props.student.dates.length === 1) {
       return "Date:";
     } else {
       return "Dates:";
@@ -85,31 +87,37 @@ class Form extends React.Component {
     return (
       <div>
         <HeaderContainer />
-        <h1>{this.props.student.name}</h1>
-        <h2>{this.props.student.classroom.name}</h2>
-        <h2>{this.props.student.lateness}</h2>
-        <h2>{this.renderLateDay()}</h2>
-        <ul>
-          {this.props.student.dates.map((date, idx) => <li key={`student-${this.props.student.id}-date-${idx}`}>{date}</li>)}
-        </ul>
-          <form onSubmit={this.handleSubmit} className="create-form">
-            {this.renderErrors()}
-            <label>Date</label>
-              <input type="date"
-                value={this.state.date}
-                onChange={this.update("date")}
-                className="date-input" />
-              <br />
-              <label>Operation</label>
-              <select
-               value={this.state.lateOperation}
-               onChange={this.update('lateOperation')}>
-               <option>Select an operation</option>
-               <option>Add</option>
-               <option>Remove</option>
-              </select>
-             <input className="submit-button" type="submit" value="Add New Student"/>
-          </form>
+        <div className="form-container">
+          <h2 className="form-classname">{this.props.student.classroom.name}</h2>
+          <h2 className="form-name"><strong className="strong-form">Student Name: </strong>{this.props.student.name}</h2>
+          <h2 className="form-name"><strong className="strong-form">Number of Lateness: </strong>{this.props.student.lateness}</h2>
+          <h2 className="form-name"><strong className="strong-form">{this.renderLateDay()}</strong></h2>
+          <ul className="date-list">
+            {this.props.student.dates.map((date, idx) => <li className="form-dates" key={`student-${this.props.student.id}-date-${idx}`}>{date}</li>)}
+          </ul>
+            <form onSubmit={this.handleSubmit} className="create-form">
+              {this.renderErrors()}
+              <label className="strong-form">Late Date </label>
+                <input type="date"
+                  value={this.state.date}
+                  onChange={this.update("date")}
+                  className="date-input" />
+                <br />
+                <br />
+                <label className="strong-form">Operation</label>
+                <select
+                 className="operation-input"
+                 value={this.state.lateOperation}
+                 onChange={this.update('lateOperation')}>
+                 <option>Select an operation</option>
+                 <option>Add</option>
+                 <option>Remove</option>
+                </select>
+                <br />
+                <br />
+               <input className="submit-button" type="submit" value="Add New Student"/>
+            </form>
+        </div>
       </div>
     );
   }

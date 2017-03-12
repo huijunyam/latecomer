@@ -1,0 +1,76 @@
+.form-container {
+  margin: 10px;
+  width: 600px;
+  margin: 50px auto;
+  background: $lightest-blue;
+  border-radius: 5px;
+}
+
+.form-classname {
+  font-size: 30px;
+  font-family: $sans-serif;
+  font-weight: normal;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.form-name {
+  font-size: 20px;
+  font-family: $sans-serif;
+  font-weight: normal;
+}
+
+.strong-form {
+  font-weight: bold;
+}
+
+.date-list {
+  margin-bottom: 20px;
+}
+
+.form-dates {
+  font-size: 15px;
+  font-family: $sans-serif;
+  color: $dark-blue;
+  padding: 10px;
+  margin-left: 50px;
+  list-style-type: disc;
+}
+
+.create-form {
+  padding: 10px;
+}
+
+label {
+  font-size: 20px;
+  font-family: $sans-serif;
+  color: $dark-blue;
+}
+
+.date-input, .operation-input {
+  width: 180px;
+  margin: 10px;
+  font-size: 15px;
+  font-family: $sans-serif;
+  color: $dark-blue;
+  border-radius: 3px;
+}
+
+.submit-button {
+  border: 1px solid $blue;
+  background: $blue;
+  color: $white;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px;
+  margin-left: 40%;
+}
+
+.form-error {
+  font-size: 15px;
+  font-family: $lato;
+  color: red;
+  margin: 10px;
+}
