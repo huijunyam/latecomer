@@ -40,16 +40,23 @@ class Form extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const dateArr = this.getDate();
-    const lateness = this.getLateness();
-    const id = this.props.student.classroom.id;
-    const student = {
-      name: this.props.student.name,
-      lateness: lateness,
-      class_id: id,
-      dates: dateArr
-    };
-    this.props.updateStudent(student).then(() => this.props.router.push(`/classlist/${id}`));
+    if (this.state.date === "") {
+      this.props.sendError(["Late date is required"]);
+    } else if (this.state.lateOperation === "") {
+      this.props.sendError(["Operation is required"]);
+    } else {
+      const dateArr = this.getDate();
+      const lateness = this.getLateness();
+      const id = this.props.student.classroom.id;
+      const student = {
+        id: this.props.student.id,
+        name: this.props.student.name,
+        lateness: lateness,
+        class_id: id,
+        dates: dateArr
+      };
+      this.props.updateStudent(student).then(() => this.props.router.push(`/classlist`));
+    }
   }
 
   renderErrors() {
@@ -66,6 +73,14 @@ class Form extends React.Component {
     }
   }
 
+  renderLateDay() {
+    if (this.props.student.dates.length === 0 || this.props.student.dates.length === 1) {
+      return "Date:";
+    } else {
+      return "Dates:";
+    }
+  }
+
   render() {
     return (
       <div>
@@ -73,6 +88,10 @@ class Form extends React.Component {
         <h1>{this.props.student.name}</h1>
         <h2>{this.props.student.classroom.name}</h2>
         <h2>{this.props.student.lateness}</h2>
+        <h2>{this.renderLateDay()}</h2>
+        <ul>
+          {this.props.student.dates.map((date, idx) => <li key={`student-${this.props.student.id}-date-${idx}`}>{date}</li>)}
+        </ul>
           <form onSubmit={this.handleSubmit} className="create-form">
             {this.renderErrors()}
             <label>Date</label>

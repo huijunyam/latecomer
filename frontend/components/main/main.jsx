@@ -12,12 +12,6 @@ class Main extends React.Component {
           <HeaderContainer />
           <div className="main-choice">
             <div className="main-choice-list">
-              <Link to="/form" >
-                <img className="main-img" src="https://res.cloudinary.com/dirtnmtpc/image/upload/v1489188250/Logomakr_9sH4Wl_buyoar.png" />
-                <p className="main-name-list">New Form</p>
-              </Link>
-            </div>
-            <div className="main-choice-list">
               <Link to="/classlist" >
                 <img className="main-img" src="https://res.cloudinary.com/dirtnmtpc/image/upload/v1489188250/Logomakr_6Xpc1Z_s6tnai.png" />
                 <p className="main-name-list">Class List</p>

@@ -35,7 +35,8 @@ class NewStudent extends React.Component {
     const student = {
       name: this.state.name,
       lateness: 0,
-      class_id: parseInt(id)
+      class_id: parseInt(id),
+      dates: []
     };
     this.props.createStudent(student).then(() => this.props.router.push(`/classlist/${id}`));
   }

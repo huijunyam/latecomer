@@ -21,6 +21,7 @@ class Api::StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:id])
+    @student.dates = params[:student][:dates]
     if @student.update(student_params)
       render "api/students/show"
     else

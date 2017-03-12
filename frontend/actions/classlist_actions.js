@@ -5,6 +5,7 @@ export const RECEIVE_CLASSES = "RECEIVE_CLASSES";
 export const RECEIVE_CLASS = "RECEIVE_CLASS";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 export const CLEAR_ERROR = "CLEAR_ERROR";
+export const SEND_ERROR = "SEND_ERROR";
 
 export const RECEIVE_STUDENTS = "RECEIVE_STUDENTS";
 export const RECEIVE_STUDENT = "RECEIVE_STUDENT";
@@ -36,6 +37,11 @@ export const receiveStudents = students => ({
 export const receiveStudent = student => ({
   type: RECEIVE_STUDENT,
   student
+});
+
+export const sendError = error => ({
+  type: SEND_ERROR,
+  error
 });
 
 export const fetchClasses = () => dispatch => (
