@@ -21,7 +21,9 @@ class ClassList extends React.Component {
               {this.props.classes.map(classname => (<ClassListItem key={classname.id} classname={classname} />))}
           </ul>
         </div>
-        {this.props.children}
+        <div>
+          {this.props.children}
+        </div>
       </div>
     );
   }

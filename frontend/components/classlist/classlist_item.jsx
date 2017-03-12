@@ -10,10 +10,9 @@ class ClassListItem extends React.Component {
     const {classname} = this.props;
     return (
       <li className="class-list-item" >
-          <Link to={`/classlist/${classname.id}`} >
-            <div className="class-list-button">{classname.name}</div>
-          </Link>
-
+        <Link to={`/classlist/${classname.id}`} >
+          <div className="class-list-button">{classname.name}</div>
+        </Link>
       </li>
     );
   }
