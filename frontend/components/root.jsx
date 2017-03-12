@@ -9,6 +9,7 @@ import FormContainer from './form/form_container';
 import ClassListContainer from './classlist/classlist_container';
 import StatContainer from './stat/stat_container';
 import ClassDetailContainer from './classlist/class_detail_container';
+import NewStudentContainer from './form/new_student_container';
 
 const Root = ({ store }) => {
   const _ensureLoggedIn = (nextState, replace) => {
@@ -32,6 +33,7 @@ const Root = ({ store }) => {
           <Route path="/main" component={MainContainer} onEnter={_ensureLoggedIn} />
           <Route path="/form" component={FormContainer} onEnter={_ensureLoggedIn} />
           <Route path="/stat" component={StatContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/newstudent" component={NewStudentContainer} onEnter={_ensureLoggedIn} />
           <Route path="/classlist" component={ClassListContainer} onEnter={_ensureLoggedIn}>
             <Route path="/classlist/:classId" component={ClassDetailContainer} onEnter={_ensureLoggedIn}/>
           </Route>

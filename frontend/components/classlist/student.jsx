@@ -1,6 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 class Student extends React.Component {
   constructor(props){
@@ -12,7 +12,7 @@ class Student extends React.Component {
   }
 
   redirect() {
-    this.props.router.push('/classlist');
+    hashHistory.push('/classlist');
   }
 
   update(e) {

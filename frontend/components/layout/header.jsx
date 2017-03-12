@@ -7,10 +7,16 @@ class Header extends React.Component{
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.redirect = this.redirect.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   redirect() {
     this.props.router.push('/');
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.router.push("/newstudent");
   }
 
   handleSubmit(e) {
@@ -26,7 +32,7 @@ class Header extends React.Component{
             <Link to="/"><img className="logo" src={"https://res.cloudinary.com/dirtnmtpc/image/upload/v1489190766/Logomakr_2X93RJ_no260f.png"} alt="logomakr"/></Link>
           </div>
           <ul className="welcome-page-nav">
-            <li><button className="welcome-list-button">New Student</button></li>
+            <li><button onClick={this.handleClick} className="welcome-list-button">New Student</button></li>
             <li className="welcome-page-list"><button className="welcome-list-button" onClick={this.handleSubmit}>Log Out</button></li>
           </ul>
         </div>

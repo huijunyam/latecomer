@@ -10,26 +10,25 @@ class Api::StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(student_params)
-    if @student.save
-      @class_name = ClassName.find(params[@student.class_id])
+    student = Student.new(student_params)
+    if student.save
+      @class_name = ClassName.find(student.class_id)
       render "api/class_names/show"
     else
-      render json: @student.errors.full_messages, status: 422
+      render json: student.errors.full_messages, status: 422
     end
   end
 
   def update
     @student = Student.find(params[:id])
     if @student.update(student_params)
-      @class_name = ClassName.find(params[@student.class_id])
-      render "api/class_names/show"
+      render "api/students/show"
     else
       render json: @event.errors.full_messages, status: 422
     end
   end
 
-  def delete
+  def destroy
     student = Student.find(params[:id])
     @class_name = student.classroom
     student.destroy
