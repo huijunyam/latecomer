@@ -11,6 +11,7 @@ import StatContainer from './stat/stat_container';
 import ClassDetailContainer from './classlist/class_detail_container';
 import NewStudentContainer from './form/new_student_container';
 import NameListContainer from './namelist/name_list_container';
+import AboveNameListContainer from './namelist/above_name_list_container';
 
 const Root = ({ store }) => {
   const _ensureLoggedIn = (nextState, replace) => {
@@ -32,7 +33,9 @@ const Root = ({ store }) => {
         <Route path="/" component= { App }>
           <IndexRoute component={WelcomeContainer} onEnter={_redirectIfLoggedIn}/>
           <Route path="/main" component={MainContainer} onEnter={_ensureLoggedIn} />
-          <Route path="/namelist" component={NameListContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/namelist" component={NameListContainer} onEnter={_ensureLoggedIn} >
+            <Route path="/namelist/:numId" component={AboveNameListContainer} onEnter={_ensureLoggedIn} />
+          </Route>
           <Route path="/stat" component={StatContainer} onEnter={_ensureLoggedIn} />
           <Route path="/newstudent" component={NewStudentContainer} onEnter={_ensureLoggedIn} />
           <Route path="/classlist" component={ClassListContainer} onEnter={_ensureLoggedIn}>

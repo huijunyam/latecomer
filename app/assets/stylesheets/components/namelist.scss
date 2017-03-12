@@ -1,0 +1,24 @@
+.namelist-header {
+  font-size: 20px;
+  color: $dark-blue;
+  font-family: $sans-serif;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: normal;
+}
+
+.button-namelist-container {
+  text-align: center;
+  display: flex;
+  width: 200px;
+  margin: 30px auto;
+}
+
+.namelist-button {
+  font-size: 18px;
+}
+
+.namelist-button:hover {
+  border-radius: 0;
+  border: 1px solid $blue;
+}
