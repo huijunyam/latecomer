@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderContainer from '../layout/header_container';
-import { Link, hashHistory } from 'react-router';
+import { Link } from 'react-router';
 
 class NewStudent extends React.Component {
   constructor(props){
@@ -8,7 +8,6 @@ class NewStudent extends React.Component {
     this.state = { class_id: 0, classname: "", name: "", lateness: 0 };
     this.upate = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.redirect = this.redirect.bind(this);
   }
 
   componentDidMount() {
@@ -30,10 +29,6 @@ class NewStudent extends React.Component {
     return id;
   }
 
-  redirect() {
-    hashHistory.push('/classlist');
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     const id = this.getClassId();
@@ -42,7 +37,7 @@ class NewStudent extends React.Component {
       lateness: 0,
       class_id: parseInt(id)
     };
-    this.props.createStudent(student).then(() => this.redirect());
+    this.props.createStudent(student).then(() => this.props.router.push(`/classlist/${id}`));
   }
 
   renderErrors() {
