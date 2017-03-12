@@ -4,6 +4,7 @@ import * as StudentUtil from '../util/student_api_util';
 export const RECEIVE_CLASSES = "RECEIVE_CLASSES";
 export const RECEIVE_CLASS = "RECEIVE_CLASS";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const CLEAR_ERROR = "CLEAR_ERROR";
 
 export const receiveClasses = classes => ({
   type: RECEIVE_CLASSES,
@@ -18,6 +19,10 @@ export const receiveClass = classDetail => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors
+});
+
+export const clearError = () => ({
+  type: CLEAR_ERROR
 });
 
 export const fetchClasses = () => dispatch => (
