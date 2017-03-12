@@ -9,12 +9,18 @@ class Student extends React.Component {
   render() {
     const student = this.props.student;
     return (
-      <li>
-        <h3>{student.name}</h3>
-        <h3>{student.lateness}</h3>
-        <div>
-          <button><img src="https://res.cloudinary.com/dirtnmtpc/image/upload/v1487975822/Logomakr_5of6gq_uzq6lf.png"/></button>
-          <button><img src="https://res.cloudinary.com/dirtnmtpc/image/upload/v1487975822/Logomakr_2CySPV_akwlqu.png" /></button>
+      <li className="list-name-student">
+        <div className="col-lastest">
+          <div className="inline-word-student">
+            <div>{student.name}</div>
+            <div className="student-lateness">{student.lateness}</div>
+          </div>
+        </div>
+        <div className="col-first-operation">
+          <div className="operation">
+            <button className="operation-button-first">Edit</button>
+            <button className="operation-button-second">Delete</button>
+          </div>
         </div>
       </li>
     );

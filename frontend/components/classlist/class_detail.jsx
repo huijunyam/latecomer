@@ -10,14 +10,18 @@ class ClassDetail extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.props.classDetail.name}</h1>
-        <div>
-          <h3>Name</h3>
-          <h3>Lateness</h3>
-          <h3>Operation</h3>
+        <h1 className="classname">{this.props.classDetail.name}</h1>
+        <div className="list-name">
+          <div className="col-lastest">
+            <div className="inline-word">
+              <div>Name</div>
+              <div>Lateness</div>
+            </div>
+          </div>
+          <div className="col-first">Operation</div>
         </div>
         <div>
-          <ul>
+          <ul className="student-list">
             {this.props.classDetail.students.map(student => (<Student key={student.id} student={student} />))}
           </ul>
         </div>
