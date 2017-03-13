@@ -10,7 +10,7 @@ class Footer extends React.Component{
   render() {
     return (
       <footer className="welcome-footer">
-        <p className="footer-note">Copyright (c) 2017 Copyright Holder All Rights Reserved SJK(C) Masai.</p>
+        <p className="footer-note">Copyright (c) 2017 Copyright Holder All Rights Reserved SJK(C) Masai & HJYAM.</p>
       </footer>
     );
   }
