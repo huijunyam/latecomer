@@ -42,17 +42,17 @@
 .list-name, .list-name-student {
   display: flex;
   justify-content: space-between;
-  width: 980px;
+  width: 800px;
   margin: 0 auto;
 }
 
 .list-name-student {
   background: $lightest-blue;
-  margin: 10px;
-  margin-left: 0;
+  // margin: 10px;
+  margin-top: 10px;
 }
 
-.inline-word, .inline-word-student {
+.inline-word, .inline-word-student, .inline-word-student-group {
   display: flex;
   justify-content: space-between;
   font-family: $sans-serif;
@@ -62,11 +62,15 @@
   background: $blue;
 }
 
-.inline-word-student {
+.inline-word-student, .inline-word-student-group {
   color: $dark-blue;
   background: $lightest-blue;
   padding-top: 20px;
   border-radius: 5px;
+}
+
+.inline-word-student-group {
+  padding-top: 10px;
 }
 
 .col-first {
@@ -81,6 +85,7 @@
 .student-lateness {
   padding-right: 30px;
 }
+
 
 .student-list {
   width: 980px;
@@ -112,4 +117,13 @@
 
 .operation-button-second {
   margin-right: 20px;
+}
+
+.col-first-lateness{
+  text-align: center;
+  font-family: $sans-serif;
+  color: $dark-blue;
+  font-size: 15px;
+  background: $lightest-blue;
+  padding: 10px;
 }

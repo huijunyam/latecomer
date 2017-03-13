@@ -16,19 +16,49 @@ class AboveNameList extends React.Component {
     }
   }
 
+  changeHeader() {
+    if (this.props.numId === 3) {
+      return "Above 3";
+    } else {
+      return "Above 5";
+    }
+  }
+
+  compare(a,b) {
+    if (a.lateness < b.lateness) {
+      return 1;
+    }
+    if (a.lateness > b.lateness) {
+      return -1;
+    }
+    return 0;
+  }
+
   filteredStudent() {
     if (this.props.numId === 5) {
-      return this.props.students.filter(student => student.dates.length >= 5);
+      return this.props.students.filter(student => student.dates.length >= 5).sort(this.compare);
     } else {
-      return this.props.students;
+      return this.props.students.sort(this.compare);
     }
   }
 
   render() {
     return (
-      <ul>
-        {this.filteredStudent().map((student, idx) => <StudentName key={idx} student={student} />)}
-      </ul>
+      <div>
+        <h2 className="classname">{this.changeHeader()}</h2>
+        <div className="list-name">
+          <div className="col-lastest">
+            <div className="inline-word">
+              <div>Student Name</div>
+              <div>Class</div>
+            </div>
+          </div>
+          <div className="col-first">Lateness</div>
+        </div>
+        <ul className="student-list">
+          {this.filteredStudent().map((student, idx) => <StudentName key={idx} student={student} />)}
+        </ul>
+      </div>
     );
   }
 }
