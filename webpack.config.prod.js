@@ -1,12 +1,11 @@
-var path = require('path');
 var webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
   entry: "./frontend/latecomer.jsx",
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'bundle.js'
+    path: "./app/assets/javascripts",
+    filename: "bundle.js"
   },
   plugins:[
     new webpack.DefinePlugin({
@@ -25,7 +24,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel',
         query: {
           presets: ['react', 'es2015']
         }
@@ -34,6 +33,6 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '*']
+    extensions: ["", ".js", ".jsx"]
   }
 };
