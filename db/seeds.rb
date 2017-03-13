@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.create(username: "hjyam", password: "password");
+user1 = User.create(username: "masai", password: "nlrd8iggfo6vtjt9");
 
 class1 = ClassName.create(name: "KHAS 1")
 class2 = ClassName.create(name: "KHAS 2")
