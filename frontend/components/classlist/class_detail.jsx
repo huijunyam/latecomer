@@ -40,10 +40,12 @@ class ClassDetail extends React.Component {
           </div>
           <div className="col-first">Operation</div>
         </div>
-        <ul className="student-list">
-          {this.sortStudent().map((student, idx) => (<Student key={idx}
-            deleteStudent={this.props.deleteStudent} id={this.props.classId} student={student} />))}
-        </ul>
+        <div className="list-name-footer">
+          <ul className="student-list">
+            {this.sortStudent().map((student, idx) => (<Student key={idx}
+              deleteStudent={this.props.deleteStudent} id={this.props.classId} student={student} />))}
+          </ul>
+        </div>
       </div>
     );
   }
