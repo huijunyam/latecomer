@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 import Graph from './graph';
-import { clearError, sendError, fetchStudents } from '../../actions/classlist_actions';
+import { fetchStudents } from '../../actions/classlist_actions';
 
-const mapStateToProps = state => ({
-  errors: state.errors
-});
+const mapStateToProps = state => {
+  const errors = state.errors;
+  const students = Object.keys(state.students).map(id => state.students[id])
+  .filter(student => student.lateness > 0);
+  return {errors, students};
+};
 
 const mapDispatchToProps = dispatch => ({
-  clearError: () => dispatch(clearError()),
-  sendError: (error) => dispatch(sendError(error)),
   fetchStudents: () => dispatch(fetchStudents())
 });
 

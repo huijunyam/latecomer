@@ -10,6 +10,10 @@ class Calendar extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchStudents().then(() => this.showCalendar());
+  }
+
+  showCalendar() {
     const { calendar } = this.refs;
     $(calendar).fullCalendar({
       events: this.props.filteredStudents,

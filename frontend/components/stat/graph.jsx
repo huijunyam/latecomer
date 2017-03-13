@@ -1,82 +1,58 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 class Graph extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { from: "", to: "" };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
   }
 
   componentDidMount() {
-    this.props.clearError();
     this.props.fetchStudents();
   }
 
-  update(field) {
-    return e => this.setState({ [field]: e.target.value });
+  compare(a,b) {
+    if (a.date < b.date) {
+      return -1;
+    }
+    if (a.date > b.date) {
+      return 1;
+    }
+    return 0;
   }
 
-  checkDate() {
-    let fromDateArr = this.state.from.split("-").map(el => parseInt(el));
-    let toDateArr = this.state.to.split("-").map(el => parseInt(el));
-    for (let i = 0; i < 3; i++){
-      if (fromDateArr[i] > toDateArr[i]) {
-        return false;
+  filteredGraph() {
+    let filteredDates = {};
+    let array = [];
+    for (let i = 0; i < this.props.students.length; i++) {
+      while (this.props.students[i].dates.length > 0) {
+        const date = this.props.students[i].dates.pop();
+        if (filteredDates[date] !== undefined) {
+          filteredDates[date] += 1;
+        } else {
+          filteredDates[date] = 1;
+        }
       }
     }
-    return true;
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    if (this.state.from === "" || this.state.to === "") {
-      this.props.sendError(["Date is required"]);
-    } else if (this.checkDate() === false){
-      this.props.sendError(["From date should be before to date"]);
-    } else {
-      const id = this.state.from + ">" + this.state.to;
-      this.props.router.push(`/graph/${id}`);
-    }
-  }
-
-  renderErrors() {
-    if (this.props.errors) {
-      return (
-        <ul className="form-error">
-          {
-            this.props.errors.map((err, idx) => (
-              <li className="error-form" key={`err-${idx}`}>{err}</li>
-            ))
-          }
-        </ul>
-      );
-    }
+    Object.keys(filteredDates).forEach(key => {
+      array.push({ date: key, frequency: filteredDates[key] });
+    });
+    array = array.sort(this.compare);
+    return array;
   }
 
   render() {
     return (
-      <div>
-        <h2 className="namelist-header">Select the date range for detail view</h2>
-        <form onSubmit={this.handleSubmit} className="create-form">
-          {this.renderErrors()}
-          <label className="strong-form">From</label>
-            <input type="date"
-              value={this.state.from}
-              onChange={this.update("from")}
-              className="date-input" />
-          <br />
-          <label className="strong-form">To</label>
-            <input type="date"
-              value={this.state.to}
-              onChange={this.update("to")}
-              className="date-input" />
-            <br />
-            <br />
-            <input className="submit-button" type="submit" value="Show Graph"/>
-        </form>
-        <div>{this.props.children}</div>
+      <div className="graph-view">
+          <LineChart width={980} height={500} data={this.filteredGraph()}
+                margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+           <XAxis dataKey="date"/>
+           <YAxis/>
+           <Tooltip/>
+           <CartesianGrid strokeDasharray="3 3"/>
+           <Legend />
+           <Line type="monotone" dataKey="frequency" stroke="#8884d8" activeDot={{r: 8}}/>
+          </LineChart>
       </div>
     );
   }

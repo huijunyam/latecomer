@@ -53,3 +53,27 @@
 <button className="class-list-button">4U</button>
 <button className="class-list-button">5U</button>
 <button className="class-list-button">6U</button>
+
+<Route path="/graph/:graphId" component={ShowGraphContainer} onEnter={_ensureLoggedIn} />
+
+<br />
+<h2 className="namelist-header">Select the date range for detail view</h2>
+<div className="graph-form">
+  <form onSubmit={this.handleSubmit} className="create-form">
+    {this.renderErrors()}
+    <label className="strong-form">From</label>
+      <input type="date"
+        value={this.state.from}
+        onChange={this.update("from")}
+        className="date-input" />
+    <br />
+    <label className="strong-form">Until</label>
+      <input type="date"
+        value={this.state.to}
+        onChange={this.update("to")}
+        className="date-input" />
+      <br />
+      <br />
+      <input className="submit-button" type="submit" value="Show Graph"/>
+  </form>
+</div>

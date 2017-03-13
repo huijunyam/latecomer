@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Calendar from './calendar';
+import { fetchStudents } from '../../actions/classlist_actions';
 import { filteredCalendar } from '../../util/selector';
 
 const mapStateToProps = state => {
@@ -9,4 +10,8 @@ const mapStateToProps = state => {
   return {filteredStudents};
 };
 
-export default connect(mapStateToProps, null)(Calendar);
+const mapDispatchToProps = dispatch => ({
+  fetchStudents: () => dispatch(fetchStudents())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Calendar);
