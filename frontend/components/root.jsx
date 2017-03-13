@@ -12,6 +12,8 @@ import ClassDetailContainer from './classlist/class_detail_container';
 import NewStudentContainer from './form/new_student_container';
 import NameListContainer from './namelist/name_list_container';
 import AboveNameListContainer from './namelist/above_name_list_container';
+import CalendarContainer from './stat/calendar_container';
+import GraphContainer from './stat/graph_container';
 
 const Root = ({ store }) => {
   const _ensureLoggedIn = (nextState, replace) => {
@@ -42,6 +44,8 @@ const Root = ({ store }) => {
             <Route path="/classlist/:classId" component={ClassDetailContainer} onEnter={_ensureLoggedIn}/>
           </Route>
           <Route path="/student/:studentId" component={FormContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/calendar" component={CalendarContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/graph" component={GraphContainer} onEnter={_ensureLoggedIn} />
         </Route>
       </Router>
     </Provider>
