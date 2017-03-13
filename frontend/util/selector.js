@@ -9,3 +9,19 @@ export const filteredCalendar = (filteredStudents) => {
   }
   return showedStudent;
 };
+
+
+export const filteredGraph = students => {
+  let filteredDates = {};
+  for (let i = 0; i < students.length; i++) {
+    while (students[i].dates.length > 0) {
+      const date = students[i].dates.pop();
+      if (filteredDates[date] !== undefined) {
+        filteredDates[date] += 1;
+      } else {
+        filteredDates[date] = 1;
+      }
+    }
+  }
+  return filteredDates;
+};
