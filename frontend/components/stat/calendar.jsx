@@ -35,7 +35,10 @@ class Calendar extends React.Component {
 
   render() {
     return (
-      <div className="calendar-view" ref="calendar"></div>
+      <div>
+        <h2 className="classname">Calendar View </h2>
+        <div className="calendar-view" ref="calendar"></div>
+      </div>
     );
   }
 }

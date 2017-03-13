@@ -12,3 +12,17 @@
   width: 1000px;
   margin: 10px auto;
 }
+
+.namelist-button-color, .namelist-button-noColor {
+  font-size: 18px;
+}
+
+.namelist-button-color{
+  background: $dark-blue;
+  color: $white;
+}
+
+.namelist-button:hover {
+  border-radius: 0;
+  border: 1px solid $blue;
+}

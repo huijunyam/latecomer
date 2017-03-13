@@ -44,6 +44,7 @@ class Graph extends React.Component {
   render() {
     return (
       <div className="graph-view">
+        <h2 className="classname">Graph View </h2>
           <LineChart width={980} height={500} data={this.filteredGraph()}
                 margin={{top: 5, right: 30, left: 20, bottom: 5}}>
            <XAxis dataKey="date"/>
