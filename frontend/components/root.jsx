@@ -38,14 +38,15 @@ const Root = ({ store }) => {
           <Route path="/namelist" component={NameListContainer} onEnter={_ensureLoggedIn} >
             <Route path="/namelist/:numId" component={AboveNameListContainer} onEnter={_ensureLoggedIn} />
           </Route>
-          <Route path="/stat" component={StatContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/stat" component={StatContainer} onEnter={_ensureLoggedIn} >
+            <Route path="/calendar" component={CalendarContainer} onEnter={_ensureLoggedIn} />
+            <Route path="/graph" component={GraphContainer} onEnter={_ensureLoggedIn} />
+          </Route>
           <Route path="/newstudent" component={NewStudentContainer} onEnter={_ensureLoggedIn} />
           <Route path="/classlist" component={ClassListContainer} onEnter={_ensureLoggedIn}>
             <Route path="/classlist/:classId" component={ClassDetailContainer} onEnter={_ensureLoggedIn}/>
           </Route>
           <Route path="/student/:studentId" component={FormContainer} onEnter={_ensureLoggedIn} />
-          <Route path="/calendar" component={CalendarContainer} onEnter={_ensureLoggedIn} />
-          <Route path="/graph" component={GraphContainer} onEnter={_ensureLoggedIn} />
         </Route>
       </Router>
     </Provider>

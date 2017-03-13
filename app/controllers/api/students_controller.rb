@@ -5,7 +5,8 @@ class Api::StudentsController < ApplicationController
   end
 
   def index
-    @students = Student.where("lateness >= ?", 3)
+    # @students = Student.where("lateness >= ?", 3)
+    @students = Student.all
     render :index
   end
 

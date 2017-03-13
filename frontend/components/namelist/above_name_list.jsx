@@ -35,10 +35,10 @@ class AboveNameList extends React.Component {
   }
 
   filteredStudent() {
-    if (this.props.numId === 5) {
-      return this.props.students.filter(student => student.dates.length >= 5).sort(this.compare);
+    if (this.props.numId === 3) {
+      return this.props.students.filter(student => student.dates.length >= 3).sort(this.compare);
     } else {
-      return this.props.students.sort(this.compare);
+      return this.props.students.filter(student => student.dates.length >= 5).sort(this.compare);
     }
   }
 

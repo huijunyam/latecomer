@@ -7,6 +7,10 @@ class Stat extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchStudents();
+  }
+  
   render() {
     return (
       <div>
