@@ -1,24 +1,5 @@
-# README
+# Latecomer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a voluntary project that records and keep track of the lateness of students attending school. This project is used by SJK (C) Masai primary school in Malaysia. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Latecomer is a full stack web application utilizing Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend. Latecomer allows teachers to record the lateness of students. There will be a line graph to keep track of the statistics of the lateness of students.
