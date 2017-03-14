@@ -33,7 +33,7 @@ class NewStudent extends React.Component {
     e.preventDefault();
     const id = this.getClassId();
     const student = {
-      name: this.state.name,
+      name: this.state.name.toUpperCase(),
       lateness: 0,
       class_id: parseInt(id),
       dates: []
